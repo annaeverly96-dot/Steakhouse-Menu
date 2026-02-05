@@ -1,0 +1,870 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Outback Steakhouse Menu US With Prices and Dining Guide</title>
+  <meta name="description" content="A complete, engaging Outback Steakhouse Menu US dining guide with categories, pricing overview, and helpful tips." />
+
+  <style>
+    :root{
+      /* Brand-ish (warm, steakhouse) palette */
+      --bg: #0b0f14;
+      --panel: rgba(255,255,255,.06);
+      --panel-2: rgba(255,255,255,.09);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.72);
+
+      --brand: #ff6a3d;      /* ember orange */
+      --brand-2: #ffbf69;    /* warm gold */
+      --accent: #2ce5c0;     /* subtle modern mint */
+      --danger: #ff3b5c;
+
+      --stroke: rgba(255,255,255,.12);
+      --shadow: 0 18px 50px rgba(0,0,0,.45);
+
+      --radius-xl: 28px;
+      --radius-lg: 18px;
+      --radius-md: 14px;
+
+      --max: 1160px;
+    }
+
+    *{ box-sizing: border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color: var(--text);
+      background:
+        radial-gradient(1200px 600px at 15% -10%, rgba(255,106,61,.35), transparent 55%),
+        radial-gradient(900px 500px at 85% 10%, rgba(44,229,192,.22), transparent 55%),
+        radial-gradient(1000px 700px at 50% 120%, rgba(255,191,105,.14), transparent 60%),
+        var(--bg);
+      line-height: 1.65;
+      overflow-x:hidden;
+    }
+
+    a{ color: inherit; text-decoration: none; }
+    .wrap{ width:100%; }
+
+    /* Header (one line) */
+    header{
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(to bottom, rgba(11,15,20,.85), rgba(11,15,20,.45));
+      border-bottom: 1px solid var(--stroke);
+    }
+    .header-inner{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 14px 18px;
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 14px;
+      white-space: nowrap; /* keep in one line */
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      min-width: 220px;
+    }
+    .logo{
+      width: 38px; height: 38px; border-radius: 12px;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255,191,105,.85), transparent 55%),
+        radial-gradient(circle at 70% 70%, rgba(255,106,61,.9), transparent 55%),
+        rgba(255,255,255,.06);
+      border: 1px solid var(--stroke);
+      box-shadow: 0 10px 30px rgba(0,0,0,.28);
+    }
+    .brand h1{
+      font-size: 14px; margin:0; letter-spacing:.2px;
+      display:flex; flex-direction: column;
+      line-height: 1.1;
+    }
+    .brand small{ color: var(--muted); font-weight: 500; }
+    nav{
+      display:flex; align-items:center; gap: 10px;
+      overflow:auto;
+      scrollbar-width: none;
+    }
+    nav::-webkit-scrollbar{ display:none; }
+    .navlink{
+      padding: 9px 12px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      color: var(--muted);
+      font-weight: 650;
+      font-size: 13px;
+      transition: .2s ease;
+    }
+    .navlink:hover{
+      color: var(--text);
+      border-color: rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+    }
+    .cta{
+      display:flex; align-items:center; gap: 10px;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-weight: 750;
+      font-size: 13px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      transition: .2s ease;
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.10);
+      border-color: rgba(255,255,255,.18);
+    }
+    .btn.primary{
+      border: 1px solid rgba(255,106,61,.35);
+      background: linear-gradient(135deg, rgba(255,106,61,.95), rgba(255,191,105,.95));
+      color: #10151b;
+      box-shadow: 0 16px 40px rgba(255,106,61,.18);
+    }
+    .btn.primary:hover{ filter: brightness(1.02); }
+
+    /* Hero */
+    .hero{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 46px 18px 18px;
+      position: relative;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 18px;
+    }
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.05));
+      border: 1px solid var(--stroke);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+    }
+    .hero-main{
+      padding: 26px 24px;
+      overflow:hidden;
+      position: relative;
+    }
+    .hero-main::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(520px 240px at 15% 15%, rgba(255,106,61,.35), transparent 60%),
+        radial-gradient(520px 240px at 80% 35%, rgba(44,229,192,.20), transparent 60%),
+        radial-gradient(480px 260px at 50% 90%, rgba(255,191,105,.18), transparent 60%);
+      opacity: .9;
+      pointer-events:none;
+    }
+    .hero-main > *{ position: relative; z-index: 1; }
+
+    .kicker{
+      display:inline-flex;
+      gap: 10px;
+      align-items:center;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.18);
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 12px;
+    }
+    .dot{
+      width: 8px; height: 8px; border-radius: 99px;
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      box-shadow: 0 0 0 4px rgba(255,106,61,.14);
+    }
+
+    .hero h2{
+      margin: 14px 0 10px;
+      font-size: clamp(26px, 4.2vw, 42px);
+      line-height: 1.12;
+      letter-spacing: -0.7px;
+    }
+    .lead{
+      margin: 0 0 16px;
+      color: rgba(255,255,255,.80);
+      font-size: 15.5px;
+      max-width: 70ch;
+    }
+
+    .link-chip{
+      display:inline-flex; align-items:center; gap: 10px;
+      padding: 10px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.20);
+      transition: .2s ease;
+      font-weight: 800;
+    }
+    .link-chip:hover{
+      background: rgba(255,255,255,.08);
+      transform: translateY(-1px);
+    }
+    .chip-icon{
+      width: 34px; height: 34px; border-radius: 12px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      display:grid; place-items:center;
+    }
+    .chip-icon svg{ width: 18px; height: 18px; opacity: .95; }
+
+    .hero-actions{
+      display:flex; flex-wrap: wrap; gap: 10px;
+      align-items:center;
+      margin-top: 14px;
+    }
+
+    .hero-side{
+      padding: 18px;
+      display:flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .mini{
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.20);
+      padding: 14px;
+    }
+    .mini h3{ margin:0 0 8px; font-size: 14px; letter-spacing:.2px;}
+    .mini p{ margin:0; color: var(--muted); font-size: 13px; }
+    .pillrow{ display:flex; flex-wrap: wrap; gap: 8px; margin-top: 10px;}
+    .pill{
+      font-size: 12px;
+      color: rgba(255,255,255,.82);
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      font-weight: 700;
+    }
+
+    /* Sections */
+    main{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 18px 18px 64px;
+    }
+    section{
+      margin-top: 18px;
+    }
+    .section-card{
+      padding: 22px 20px;
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,.04);
+    }
+    .section-title{
+      display:flex; align-items:flex-end; justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .section-title h3{
+      margin:0;
+      font-size: 20px;
+      letter-spacing: -0.2px;
+    }
+    .section-title span{
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 13px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.18);
+      white-space: nowrap;
+    }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 14px;
+      margin-top: 12px;
+    }
+    .grid-3{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 14px;
+      margin-top: 12px;
+    }
+    .info{
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(255,255,255,.12);
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
+      padding: 16px;
+      position: relative;
+      overflow:hidden;
+    }
+    .info::after{
+      content:"";
+      position:absolute; inset:auto -60px -70px auto;
+      width: 160px; height: 160px;
+      background: radial-gradient(circle at 30% 30%, rgba(255,106,61,.30), transparent 60%);
+      transform: rotate(18deg);
+      pointer-events:none;
+    }
+    .info h4{ margin:0 0 6px; font-size: 15px; letter-spacing:.1px;}
+    .info p{ margin:0; color: var(--muted); font-size: 13.5px; }
+
+    /* Table */
+    .table-wrap{
+      margin-top: 14px;
+      border-radius: var(--radius-xl);
+      overflow:hidden;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.18);
+    }
+    table{
+      width:100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    thead th{
+      text-align:left;
+      padding: 14px 14px;
+      background: linear-gradient(135deg, rgba(255,106,61,.26), rgba(44,229,192,.12));
+      border-bottom: 1px solid rgba(255,255,255,.12);
+      letter-spacing:.2px;
+      font-weight: 850;
+    }
+    tbody td{
+      padding: 12px 14px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      color: rgba(255,255,255,.84);
+    }
+    tbody tr:hover td{
+      background: rgba(255,255,255,.05);
+    }
+    tbody tr:last-child td{ border-bottom:none; }
+    .price{
+      font-weight: 900;
+      color: rgba(255,255,255,.92);
+      white-space: nowrap;
+    }
+
+    /* Lists */
+    ul.clean{
+      margin: 10px 0 0;
+      padding: 0;
+      list-style:none;
+      display:grid;
+      gap: 10px;
+    }
+    .li{
+      display:flex; gap: 10px; align-items:flex-start;
+      padding: 12px 12px;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.16);
+    }
+    .badge{
+      min-width: 34px; height: 34px;
+      border-radius: 12px;
+      display:grid; place-items:center;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+    }
+    .badge svg{ width: 18px; height: 18px; opacity: .95; }
+    .li b{ display:block; margin-bottom: 3px; }
+    .li span{ color: var(--muted); font-size: 13.5px; display:block; }
+
+    /* Inline brand link styling */
+    .brand-link{
+      color: #0b0f14;
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-weight: 900;
+      box-shadow: 0 10px 25px rgba(255,106,61,.16);
+      border: 1px solid rgba(255,255,255,.18);
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+    }
+    .brand-link svg{ width: 16px; height: 16px; }
+
+    .muted{ color: var(--muted); }
+
+    /* Footer */
+    footer{
+      border-top: 1px solid var(--stroke);
+      background: rgba(0,0,0,.20);
+      padding: 28px 18px;
+    }
+    .footer-inner{
+      max-width: var(--max);
+      margin: 0 auto;
+      display:flex;
+      gap: 14px;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .foot-left{
+      display:flex; flex-direction: column; gap: 6px;
+    }
+    .foot-left b{ letter-spacing:.2px; }
+    .social{
+      display:flex; gap: 10px; align-items:center;
+    }
+    .social a{
+      width: 44px; height: 44px;
+      border-radius: 16px;
+      display:grid; place-items:center;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      transition: .2s ease;
+    }
+    .social a:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.10);
+      border-color: rgba(255,255,255,.18);
+    }
+    .social svg{ width: 18px; height: 18px; opacity: .95; }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero-grid{ grid-template-columns: 1fr; }
+      .brand{ min-width: 0; }
+      .cta{ display:none; } /* keep header one-line clean on small screens */
+      .grid-3{ grid-template-columns: 1fr; }
+    }
+    @media (max-width: 720px){
+      .grid-2{ grid-template-columns: 1fr; }
+      .hero-main{ padding: 22px 18px; }
+      .section-card{ padding: 18px 16px; }
+      thead th, tbody td{ padding: 12px 12px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <!-- Header (one line) -->
+    <header>
+      <div class="header-inner">
+        <div class="brand" aria-label="Site branding">
+          <div class="logo" aria-hidden="true"></div>
+          <h1>
+            Outback Steakhouse Menu US
+            <small>Prices • Dining Guide • Menu Categories</small>
+          </h1>
+        </div>
+
+        <nav aria-label="Primary navigation">
+          <a class="navlink" href="#overview">Overview</a>
+          <a class="navlink" href="#appetizers">Appetizers</a>
+          <a class="navlink" href="#steaks">Steaks</a>
+          <a class="navlink" href="#pricing">Prices</a>
+          <a class="navlink" href="#desserts">Desserts</a>
+        </nav>
+
+        <div class="cta">
+          <a class="btn" href="#categories">Explore Categories</a>
+          <a class="btn primary" href="#pricing">View Price Ranges</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" id="overview">
+      <div class="hero-grid">
+        <div class="card hero-main">
+          <div class="kicker"><span class="dot" aria-hidden="true"></span> US Dining Guide • Updated Layout • Full Width UI</div>
+          <h2>Outback Steakhouse Menu US With Prices and Dining Guide</h2>
+
+          <p class="lead">
+            Outback Steakhouse is one of the most recognized casual dining restaurants in the United States, known for bold flavors,
+            hearty portions, and steakhouse-style favorites with an Australian-inspired vibe. Many diners check the menu ahead of time
+            to compare options and plan the perfect order.
+          </p>
+
+          <p class="lead">
+            If you want a quick, reliable overview before visiting, open this resource:
+            <!-- FIRST LINK (Intro ke andar mid mein) -->
+            <a class="brand-link" href="https://outbacksteakhousemenuus.com/" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M10.5 13.5L13.5 10.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M8.2 15.8l-1.6 1.6a4 4 0 0 1-5.7-5.7l1.6-1.6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M15.8 8.2l1.6-1.6a4 4 0 0 1 5.7 5.7l-1.6 1.6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              Outback Steakhouse Menu US
+            </a>
+          </p>
+
+          <div class="hero-actions" aria-label="Quick actions">
+            <a class="link-chip" href="#pricing">
+              <span class="chip-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M7 7h10M7 12h10M7 17h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </span>
+              Price Overview
+            </a>
+            <a class="link-chip" href="#categories">
+              <span class="chip-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M4 7h7v7H4V7ZM13 7h7v7h-7V7ZM4 16h16v2H4v-2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              Menu Categories
+            </a>
+          </div>
+        </div>
+
+        <aside class="card hero-side" aria-label="Highlights">
+          <div class="mini">
+            <h3>What you’ll find here</h3>
+            <p>Complete categories, estimated US price ranges, and a smooth reading flow designed for fast decisions.</p>
+            <div class="pillrow">
+              <span class="pill">Bold Flavors</span>
+              <span class="pill">Hearty Portions</span>
+              <span class="pill">Family Friendly</span>
+              <span class="pill">Steakhouse Classics</span>
+            </div>
+          </div>
+
+          <div class="mini">
+            <h3>Quick ordering tip</h3>
+            <p>Pick your protein first (steak / chicken / seafood), then customize sides for the best value + balance.</p>
+          </div>
+
+          <div class="mini">
+            <h3>Best for</h3>
+            <p>Friends, families, and steak lovers who want a relaxed casual dining experience with consistent quality.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+      <section class="section-card" id="categories">
+        <div class="section-title">
+          <h3>Understanding the Outback Steakhouse Menu in the US</h3>
+          <span>Menu Variety • Easy Navigation</span>
+        </div>
+
+        <p class="muted">
+          The Outback Steakhouse menu in the US is designed to satisfy a wide range of tastes. While premium steaks are the highlight,
+          guests can also enjoy chicken, seafood, burgers, salads, soups, and indulgent desserts. Each section focuses on bold seasoning
+          and generous serving sizes—one of the key reasons people keep coming back.
+        </p>
+
+        <div class="grid-3" aria-label="Main menu categories">
+          <div class="info">
+            <h4>Appetizers</h4>
+            <p>Signature starters that set the tone—great for sharing and trying multiple flavors.</p>
+          </div>
+          <div class="info">
+            <h4>Signature Steaks</h4>
+            <p>Seasoned, cooked-to-order cuts with classic sides that complete the steakhouse experience.</p>
+          </div>
+          <div class="info">
+            <h4>Chicken, Ribs & Combos</h4>
+            <p>Perfect for variety—choose lighter grilled chicken, saucy ribs, or combination plates.</p>
+          </div>
+          <div class="info">
+            <h4>Seafood</h4>
+            <p>Balanced options like salmon, shrimp, and lobster tail with simple seasonings.</p>
+          </div>
+          <div class="info">
+            <h4>Burgers & Sandwiches</h4>
+            <p>Hearty handhelds that deliver bold flavor—ideal for casual lunches or easy dinners.</p>
+          </div>
+          <div class="info">
+            <h4>Desserts & Beverages</h4>
+            <p>Rich desserts and refreshing drinks to finish strong—often big enough to share.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-card" id="appetizers">
+        <div class="section-title">
+          <h3>Appetizers That Set the Tone</h3>
+          <span>Shareable • Flavor-Forward</span>
+        </div>
+
+        <p class="muted">
+          Appetizers are a major part of the Outback experience. Starters are built to prepare guests for the main course with rich flavors
+          and satisfying textures. The iconic Blooming Onion is the signature pick many diners associate with the brand, while other fried
+          and grilled options are perfect for groups who want to share.
+        </p>
+
+        <ul class="clean">
+          <li class="li">
+            <div class="badge" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M12 3l4 7-4 4-4-4 4-7Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                <path d="M8 14l-2 7h12l-2-7" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div>
+              <b>Signature Starter</b>
+              <span>Great when you want a bold first bite and something shareable for the table.</span>
+            </div>
+          </li>
+          <li class="li">
+            <div class="badge" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M7 11h10M9 7h6M5 15h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div>
+              <b>Group-Friendly Ordering</b>
+              <span>Best strategy: order 1–2 appetizers per 3–4 people to sample multiple flavors.</span>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <section class="section-card" id="steaks">
+        <div class="section-title">
+          <h3>Steak Selection and Cooking Style</h3>
+          <span>Cooked-to-Order • Consistent Quality</span>
+        </div>
+
+        <p class="muted">
+          Steaks are the heart of the Outback Steakhouse Menu US. High-quality cuts are seasoned with a proprietary spice blend and grilled
+          to your preferred doneness—from rare to well-done. Favorites typically include sirloin, ribeye, filet mignon, and New York strip.
+          Each steak is paired with satisfying sides that elevate the overall meal.
+        </p>
+
+        <div class="grid-2">
+          <div class="info">
+            <h4>Popular Steak Choices</h4>
+            <p>Sirloin • Ribeye • Filet Mignon • New York Strip — select based on tenderness vs. rich marbling.</p>
+          </div>
+          <div class="info">
+            <h4>How to Choose Doneness</h4>
+            <p>If you like juicy + tender, go medium-rare to medium. Prefer firmer texture? Choose medium-well to well-done.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-card" id="combos">
+        <div class="section-title">
+          <h3>Chicken, Ribs, and Combination Meals</h3>
+          <span>Variety • Great Value</span>
+        </div>
+
+        <p class="muted">
+          Not everyone orders steak, and the menu supports that with flavorful grilled chicken and slow-cooked ribs. Ribs are typically
+          coated in signature sauces that bring smoky richness. Combination meals are a favorite because they let you enjoy more than one
+          protein on a single plate—ideal when you want variety without ordering two full entrees.
+        </p>
+      </section>
+
+      <section class="section-card" id="seafood">
+        <div class="section-title">
+          <h3>Seafood Options for Balanced Dining</h3>
+          <span>Light • Satisfying</span>
+        </div>
+
+        <p class="muted">
+          Seafood adds a balanced option for guests who want something lighter than steak but still full of flavor. Common picks include grilled
+          salmon, shrimp, and lobster tail. These meals are usually seasoned simply to preserve natural taste and served with fresh sides.
+        </p>
+
+        <div class="grid-2">
+          <div class="info">
+            <h4>Best for a lighter meal</h4>
+            <p>Seafood + vegetables is a clean, satisfying combination for lunch or dinner.</p>
+          </div>
+          <div class="info">
+            <h4>Best for special occasions</h4>
+            <p>Lobster tail-style upgrades can make your meal feel more premium without overcomplicating the order.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-card" id="sides">
+        <div class="section-title">
+          <h3>Side Dishes and Meal Customization</h3>
+          <span>Customize • Big Portions</span>
+        </div>
+
+        <p class="muted">
+          Side dishes play a major role in the overall Outback experience. Guests often choose from mashed potatoes, baked potatoes, seasoned rice,
+          fresh vegetables, and other classic comfort sides. Portion sizes are generous, so sides feel like a real part of the meal—not an afterthought.
+        </p>
+
+        <ul class="clean">
+          <li class="li">
+            <div class="badge" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M4 12c2-6 14-6 16 0-2 6-14 6-16 0Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                <path d="M8 12h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div>
+              <b>Classic Comfort Sides</b>
+              <span>Mashed potatoes, baked potatoes, rice, and vegetables help you tailor the meal to your taste.</span>
+            </div>
+          </li>
+          <li class="li">
+            <div class="badge" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M7 6h10v12H7V6Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                <path d="M9 9h6M9 12h6M9 15h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div>
+              <b>Smart Customization</b>
+              <span>Pick your main first, then choose sides to match your mood: hearty, balanced, or lighter.</span>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <section class="section-card" id="pricing">
+        <div class="section-title">
+          <h3>Outback Steakhouse Menu US Price Overview</h3>
+          <span>Estimated Ranges • Location May Vary</span>
+        </div>
+
+        <p class="muted">
+          Below is an estimated US price range by category. Actual pricing can vary by location and local taxes.
+          <!-- SECOND LINK (Content ke mid mein) -->
+          For a fast, menu-first view, you can also check
+          <a class="brand-link" href="https://outbacksteakhousemenuus.com/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M10.5 13.5L13.5 10.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M8.2 15.8l-1.6 1.6a4 4 0 0 1-5.7-5.7l1.6-1.6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M15.8 8.2l1.6-1.6a4 4 0 0 1 5.7 5.7l-1.6 1.6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            current Outback menu pricing and category details
+          </a>
+          anytime before you visit.
+        </p>
+
+        <div class="table-wrap" role="region" aria-label="Price overview table">
+          <table>
+            <thead>
+              <tr>
+                <th>Menu Category</th>
+                <th>Average Price Range (USD)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Appetizers</td>
+                <td class="price">$8 – $15</td>
+              </tr>
+              <tr>
+                <td>Steaks</td>
+                <td class="price">$18 – $35</td>
+              </tr>
+              <tr>
+                <td>Chicken and Ribs</td>
+                <td class="price">$15 – $28</td>
+              </tr>
+              <tr>
+                <td>Seafood</td>
+                <td class="price">$17 – $34</td>
+              </tr>
+              <tr>
+                <td>Burgers and Sandwiches</td>
+                <td class="price">$13 – $18</td>
+              </tr>
+              <tr>
+                <td>Desserts</td>
+                <td class="price">$7 – $10</td>
+              </tr>
+              <tr>
+                <td>Beverages</td>
+                <td class="price">$3 – $6</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section-card" id="desserts">
+        <div class="section-title">
+          <h3>Desserts and Beverages</h3>
+          <span>Finish Strong • Shareable</span>
+        </div>
+
+        <p class="muted">
+          Desserts at Outback Steakhouse are rich, satisfying, and often large enough to share. The famous Chocolate Thunder From Down Under is a
+          top pick for chocolate lovers. Cheesecake and seasonal desserts also make an excellent ending. Beverage choices include soft drinks, iced tea,
+          coffee, and alcoholic options—so you can pair your meal with whatever fits your vibe.
+        </p>
+      </section>
+
+      <section class="section-card" id="why">
+        <div class="section-title">
+          <h3>Why the Outback Steakhouse Menu US Is So Popular</h3>
+          <span>Quality • Value • Atmosphere</span>
+        </div>
+
+        <p class="muted">
+          Outback’s popularity comes from consistent quality, generous portions, and friendly service. The menu is built to please a wide audience—from
+          steak enthusiasts to guests who prefer lighter meals. The casual environment works well for families, friends, and special occasions, making it
+          a dependable choice across the United States.
+        </p>
+      </section>
+
+      <section class="section-card" id="conclusion">
+        <div class="section-title">
+          <h3>Conclusion</h3>
+          <span>Plan Better • Enjoy More</span>
+        </div>
+
+        <p class="muted">
+          The Outback Steakhouse Menu US delivers a well-rounded dining experience with bold flavors, variety, and value. Steaks remain the star, supported
+          by chicken, seafood, satisfying sides, and indulgent desserts. Checking the menu in advance helps you choose confidently and enjoy your visit even more.
+        </p>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-inner">
+        <div class="foot-left">
+          <b>Outback Steakhouse Menu US — Dining Guide</b>
+          <span class="muted">Full-width, professional UI • Designed for fast reading and better decisions.</span>
+        </div>
+
+        <div class="social" aria-label="Social links">
+          <a href="#" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v3H7v3h3v6h3v-6h3l1-3h-4v-3c0-.6.4-1 1-1Z" fill="currentColor"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Z" stroke="currentColor" stroke-width="2"/>
+              <path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" stroke="currentColor" stroke-width="2"/>
+              <path d="M17.5 6.5h.01" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="X (Twitter)">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M18 3h3l-7 8 8 10h-6l-5-6-5 6H2l8-9L3 3h6l4 5 5-5Z" fill="currentColor"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M21 7.5a3 3 0 0 0-2.1-2.1C17 5 12 5 12 5s-5 0-6.9.4A3 3 0 0 0 3 7.5 31 31 0 0 0 3 12a31 31 0 0 0 .1 4.5 3 3 0 0 0 2.1 2.1C7 19 12 19 12 19s5 0 6.9-.4a3 3 0 0 0 2.1-2.1A31 31 0 0 0 21 12a31 31 0 0 0 0-4.5Z" stroke="currentColor" stroke-width="2"/>
+              <path d="M10 9.5v5l5-2.5-5-2.5Z" fill="currentColor"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
